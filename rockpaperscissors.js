@@ -54,10 +54,11 @@ function getWinner(playerMove,computerMove) {
         winner = "computer";
     }
 
-    else {
+    else if (playerMove === computerMove){
         winner = "tie";
     }
-
+    console.log(playerMove);
+    console.log(computerMove);
     return winner;
 }
 
@@ -84,6 +85,6 @@ function playToFive() {
     //   Update score
     return [playerWins, computerWins];
 }
-getWinner(getPlayerMove(), getComputerMove());
+getWinner(getPlayerMove(null), getComputerMove(null));
 
 
