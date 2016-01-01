@@ -26,7 +26,7 @@ function getPlayerMove(move) {
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
     return move || getInput();
-    //TYS - CHANGE AFTER THE || (or)
+
 }
 
 function getComputerMove(move) {
@@ -34,7 +34,7 @@ function getComputerMove(move) {
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
     return move || randomPlay();
-    //TYS - CHANGE AFTER THE || (or)
+
 }
 
 function getWinner(playerMove,computerMove) {
@@ -66,6 +66,8 @@ function playToFive() {
     console.log('Let\'s play Rock Paper Scissors');
     var playerWins = 0;
     var computerWins = 0;
+    var result;
+
   // This function should continue to play Rock Paper Scissors until either the
   // player or the computer has won five times.
   // After each 'round', display some text in the console indicating who played
@@ -75,16 +77,22 @@ function playToFive() {
   //  console.log('The score is currently ' + playerWins + ' to ' + computerWins + '\n');
   /* YOUR CODE HERE */
 
-    //TYS - make this a while loop
-    //while (playerWins >= 5 || computerWins >=5){
+    while (playerWins <5 && computerWins <5){    
+        var playerMove = getPlayerMove(null);
+        var computerMove = getComputerMove(null)
+        result = getWinner(playerMove, computerMove);
+        if (result === "player"){
+            playerWins ++;
+        }
+        else if (result === "computer"){
+            computerWins ++;
+        }
+        console.log('Player chose ' + playerMove + ' while Computer chose ' + computerMove + '\n');
+        console.log('Player score: ' + playerWins + ' and Computer score: ' + computerWins + '\n');
+    }
 
-    //}
-  
-    //   Things that you need for a turn:
-    //   Computer move, player move, check who wins
-    //   Update score
     return [playerWins, computerWins];
 }
-getWinner(getPlayerMove(null), getComputerMove(null));
 
+playToFive();
 
